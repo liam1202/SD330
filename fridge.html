@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { background-color: gray; color: black; }
+        .left-container {
+            border: solid black;
+            padding: 2px;
+            border-width: 5px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 30%;
+            float: left;
+            background-color: aliceblue;
+        }
+        .right-container {
+            border: solid black;
+            padding: 2px;
+            border-width: 5px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 60%; 
+            float: right;
+            background-color: aqua;
+        }
+        .fullWidth { width: 100%; }
+    </style>
+    <title>E06-Knipper</title>
+    <meta charset="UTF-8">
+</head>
+<body onload="doStartClock()">
+    <div class="left-container">
+        <div id="div1">
+            <input type="button" onclick="button2()" id="button2" value="Open Door">
+            <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6211/6211525_sd.jpg;maxHeight=640;maxWidth=550" 
+            id="image1" width="400px" height="800px">
+        </div>
+    </div>
+    <br style="clear: right";>
+    <div class="right-container">
+        
+        <div id="div2" onload="">
+            <p id="timePar" style="font-size: 2em; font-family: 'Courier New', 
+            'Courier New', Courier, monospace; text-align: center;">00:00:00</p>
+        </div>
+        <div id="div3">
+            <input type="button" onclick="button1()" id="button1" value="HideTemp" style="background-color: red;">
+            <br style="clear: right";>
+            <p id="temp" style="display: none;">The internal temperature is 40 degrees F</p>
+        </div>
+        <div id="div4">
+            <input type="button" onclick="button3()" id="button3" value="BrowserOff" style="background-color: red;">
+            <br style="clear: right";>
+            <img src="https://cdn.vectorstock.com/i/1000x1000/22/86/power-button-icon-isolated-on-white-background-vector-37952286.webp" 
+            id="browserOff" width="300px" height="300px">
+        </div>
+        
+        <div id="div5">
+            <input type="button" onclick="button4()" id="button4" value="tvOff" style="background-color: red;">
+            <br style="clear: right";>
+            <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6360/6360720cv13d.jpg;maxHeight=2000;maxWidth=2000" 
+            id="tvoff" width="300px" height="300px">
+        </div>
+        <div id="div6"></div>
+        <p style="clear: left"></p>
+        
+    </div>
+    <br style="clear: right";>
+    <footer><small><hr>(c) L. Knipper - October 12, 2023</footer></small>
+    <script>
+        globalAuthor= "Liam Knipper";
+      function doStartClock(){
+        setInterval(doClockTick,1000);
+      }
+      function doClockTick(){
+        var currentDate=new Date();
+        var hours=currentDate.getHours();
+        var mins=currentDate.getMinutes();
+        var secs=currentDate.getSeconds();
+        var TimeString=hours+":"+mins+":"+secs;
+        var outputElement=document.getElementById("timePar");
+        outputElement.textContent=TimeString;
+        document.getElementById("div6").innerHTML="Coded by " +globalAuthor;
+        
+      } 
+      function button1(){
+        but1=document.getElementById("button1")
+        if (but1.value == "ShowTemp"){
+            but1.value = "HideTemp";
+            but1.style.backgroundColor="red";
+            
+                
+        } else {
+            but1.value = "ShowTemp";
+            but1.style.backgroundColor="green";
+            
+            
+        }
+        var tempParagraph = document.getElementById("temp");
+        if (tempParagraph.style.display === 'none') {
+            tempParagraph.style.display = 'block';
+        } else {
+            tempParagraph.style.display = 'none';
+        }
+        
+        }
+        function button2(){
+        image1=document.getElementById("image1")
+            openFridge="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6211/6211525cv2d.jpg;maxHeight=2000;maxWidth=2000";
+            closeFridge= "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6211/6211525_sd.jpg;maxHeight=640;maxWidth=550";
+            if (image1.src===closeFridge){
+                image1.src=openFridge;
+            } else{
+                image1.src=closeFridge;
+            }
+            but2=document.getElementById("button2")
+            if (but2.value == "Close Door"){
+            but2.value = "Open Door";
+        } else {
+            but2.value = "Close Door";
+        }
+            
+        }
+        function button3(){
+        browseron=document.getElementById("browserOff");
+        browserOn="https://images.techadvisor.com/cmsdata/features/3580349/Restart_browser_without_losing_open_tabs.jpg";
+        browserOff="https://cdn.vectorstock.com/i/1000x1000/22/86/power-button-icon-isolated-on-white-background-vector-37952286.webp";
+        if (browseron.src===browserOff){
+                browseron.src=browserOn;
+            } else{
+                browseron.src=browserOff;
+            }
+        but3=document.getElementById("button3")
+        if (but3.value == "BrowserOn"){
+            but3.value = "BrowserOff";
+            but3.style.backgroundColor="red";
+            
+                
+        } else {
+            but3.value = "BrowserOn";
+            but3.style.backgroundColor="green";
+            
+            
+        }
+        
+        
+        }
+        function button4(){
+            tvon=document.getElementById("tvoff");
+        tvOn="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6360/6360720_sd.jpg;maxHeight=2000;maxWidth=2000";
+        tvOff="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6360/6360720cv13d.jpg;maxHeight=2000;maxWidth=2000";
+        if (tvon.src===tvOff){
+                tvon.src=tvOn;
+            } else{
+                tvon.src=tvOff;
+            }
+        but4=document.getElementById("button4")
+        if (but4.value == "tvOn"){
+            but4.value = "tvOff";
+            but4.style.backgroundColor="red";
+            
+                
+        } else {
+            but4.value = "tvOn";
+            but4.style.backgroundColor="green";
+            
+            
+        }
+        
+        
+        }
+        
+        
+        
+       
+    </script>
+</body>
+</html>
