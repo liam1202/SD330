@@ -21,32 +21,45 @@
             margin-bottom: 10px;
             width: 60%; 
             float: right;
-            background-color: aqua;
+            background-color: black;
         }
         .fullWidth { width: 100%; }
+        .darkMode{
+            background-color: black;
+        }
+
+        
     </style>
-    <title>Fridge-Knipper</title>
+    <title>Fridge App-Knipper</title>
     <meta charset="UTF-8">
 </head>
 <body onload="doStartClock()">
+    <input type="button" onclick="switchFormat()" id="switchFormat" value="Switch Format">
     <div class="left-container">
         <div id="div1">
             <input type="button" onclick="button2()" id="button2" value="Open Door">
             <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6211/6211525_sd.jpg;maxHeight=640;maxWidth=550" 
-            id="image1" width="400px" height="800px">
+            id="image1" width="450px" height="1400px">
         </div>
     </div>
     <br style="clear: right";>
     <div class="right-container">
-        
+        <button id="backgroundToggleButton" button onclick="toggleBackgroundColor()">Main Off</button>
         <div id="div2" onload="">
             <p id="timePar" style="font-size: 2em; font-family: 'Courier New', 
             'Courier New', Courier, monospace; text-align: center;">00:00:00</p>
         </div>
         <div id="div3">
             <input type="button" onclick="button1()" id="button1" value="HideTemp" style="background-color: red;">
+            <input type="button" onclick="toggleTemperatureUnit()" id="toggleTemperatureUnit" value="Toggle °F/°C">
             <br style="clear: right";>
-            <p id="temp" style="display: none;">The internal temperature is 40 degrees F</p>
+            <p id="temp" style="display: none;">The internal temperature is 40 °F</p>
+            <button onclick="increaseTemperature()">Increase</button>
+            <button onclick="decreaseTemperature()">Decrease</button>
+        </div>
+        <div id="weather">
+            <input type="button" onclick="toggleWeather()" id="weatherButton" value="HideWeather" style="background-color: red;">
+            <p id="wet" style="display: none;">The weather is currently Sunny with a temperature of 71 °F</p>
         </div>
         <div id="div4">
             <input type="button" onclick="button3()" id="button3" value="BrowserOff" style="background-color: red;">
@@ -56,19 +69,65 @@
         </div>
         
         <div id="div5">
-            <input type="button" onclick="button4()" id="button4" value="tvOff" style="background-color: red;">
+            <input type="button" onclick="button4();" id="button4" value="tvOff" style="background-color: red;">
             <br style="clear: right";>
             <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6360/6360720cv13d.jpg;maxHeight=2000;maxWidth=2000" 
             id="tvoff" width="300px" height="300px">
         </div>
-        <div id="div6"></div>
-        <p style="clear: left"></p>
+        <div id="music">
+            <input type="button" onclick="music()" id="song" value="musicOff" style="background-color: red;">
+            <br style="clear: right";>
+            <img src="https://play-lh.googleusercontent.com/tlXlyl74ExJ_oPqpWNNa2htCXnfsKVRMZ8FwqdB1QeasUaPIqQWUaxmN-fMyA51BJDY=w240-h480-rw" 
+            id="musicOff" width="300px" height="300px">
+        </div>
+        <div id="timer-container">
+            <h2>Countdown Timer</h2>
+            <div id="timer"></div>
+            <button onclick="startTimer(59)">Start Minute Timer</button>
+            <button onclick="stopTimer()">Stop Timer</button>
+        </div>
         
+        <p style="clear: left"></p>
+        <h2>Shopping List</h2>
+        <ul id="shoppingList">
+            <li>Bread</li>
+            <li>Milk</li>
+            <li>Eggs</li>
+            <li>Butter</li>
+            <li>Cheese</li>
+        </ul>
+        <input type="text" id="newItem" placeholder="Add an item">
+        <button onclick="addItemToList()">Add Item</button>
     </div>
+    
+    
     <br style="clear: right";>
-    <footer><small><hr>(c) L. Knipper - October 12, 2023</footer></small>
+    <footer><small><hr>(c) L. Knipper - November 6, 2023</footer></small>
+    <audio id="alarm" src="alarm.mp3"></audio> 
+    <audio id="tv" src=""></audio>
+
+    
     <script>
-        globalAuthor= "Liam Knipper";
+        let globalAuthor= "Liam Knipper";
+        let is12HourFormat=true;
+        let isCelsius = false;
+        let currentTemperature = 40;
+        let countdown;
+        const timerDisplay = document.getElementById("timer");
+
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+        
+
+        function playAudio(){
+            const audio = document.getElementById("alarm");
+            audio.play();
+        }
+    
+        
+        
       function doStartClock(){
         setInterval(doClockTick,1000);
       }
@@ -77,12 +136,26 @@
         var hours=currentDate.getHours();
         var mins=currentDate.getMinutes();
         var secs=currentDate.getSeconds();
-        var TimeString=hours+":"+mins+":"+secs;
+        var TimeString= formatTime(hours,mins,secs);
         var outputElement=document.getElementById("timePar");
         outputElement.textContent=TimeString;
-        document.getElementById("div6").innerHTML="Coded by " +globalAuthor;
-        
+        document.getElementById("div6").innerHTML="Coded by " +globalAuthor;  
       } 
+      function formatTime(hours, mins, secs){
+        if (is12HourFormat) {
+            let meridian = hours >= 12 ? "PM" : "AM";
+            
+            return `${hours % 12}:${mins}:${secs} ${meridian}`;
+        } else {
+            return `${String(hours).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        }
+    }
+        function switchFormat(){
+            is12HourFormat = !is12HourFormat;
+            doClockTick();
+        }
+        
+      
       function button1(){
         but1=document.getElementById("button1")
         if (but1.value == "ShowTemp"){
@@ -103,6 +176,52 @@
             tempParagraph.style.display = 'none';
         }
         
+        }
+
+            function toggleWeather() {
+                weather=document.getElementById("weatherButton")
+                if (weather.value == "ShowWeather"){
+                    weather.value = "HideWeather";
+                    weather.style.backgroundColor="red";
+            
+                
+                } else {
+                    weather.value = "ShowWeather";
+                    weather.style.backgroundColor="green";
+            
+            
+                }
+                var wetParagraph = document.getElementById("wet");
+                if (wetParagraph.style.display === 'none') {
+                    wetParagraph.style.display = 'block';
+                } else {
+                    wetParagraph.style.display = 'none';
+                }
+        
+                }
+
+        function toggleTemperatureUnit() {
+            isCelsius = !isCelsius;
+            updateTemperatureDisplay();
+        }
+        function updateTemperatureDisplay() {
+            const temperatureValueElement = document.getElementById("temp");
+            if (isCelsius) {
+                const celsiusTemperature = ((currentTemperature - 32) * 5) / 9;
+                temperatureValueElement.textContent = `The internal temperature is ${celsiusTemperature.toFixed(2)} °C`;
+            } else {
+                temperatureValueElement.textContent = `The internal temperature is ${currentTemperature} °F`;
+
+            }
+        }
+        function increaseTemperature() {
+            currentTemperature++;
+            updateTemperatureDisplay();
+        }
+
+        function decreaseTemperature() {
+            currentTemperature--;
+            updateTemperatureDisplay();
         }
         function button2(){
         image1=document.getElementById("image1")
@@ -169,8 +288,91 @@
         
         
         }
+        function music(){
+            musicon=document.getElementById("musicOff");
+            musicOn="https://www.rollingstone.com/wp-content/uploads/2020/08/CE7B2C55-0C84-4E05-B2BD-8E28B893B949.jpeg";
+            musicOff="https://play-lh.googleusercontent.com/tlXlyl74ExJ_oPqpWNNa2htCXnfsKVRMZ8FwqdB1QeasUaPIqQWUaxmN-fMyA51BJDY=w240-h480-rw";
+            if (musicon.src===musicOff){
+                    musicon.src=musicOn;
+                } else{
+                    musicon.src=musicOff;
+                }
+            song=document.getElementById("song");
+            if (song.value == "musicOn"){
+                song.value = "musicOff";
+                song.style.backgroundColor="red";
+            
+                
+            } else {
+                song.value = "musicOn";
+                song.style.backgroundColor="green";
+            
+            
+            }
         
         
+        }
+        function displayTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            const display = `${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
+            timerDisplay.textContent = display;
+        }
+        function startTimer(seconds) {
+            clearInterval(countdown);
+
+            const now = Date.now();
+            const then = now + seconds * 1000;
+            displayTime(seconds);
+
+            countdown = setInterval(() => {
+                const secondsLeft = Math.round((then - Date.now()) / 1000);
+
+                if (secondsLeft < 0) {
+                    clearInterval(countdown);
+                    timerDisplay.textContent = "00:00";
+                    playAlarm();
+                } else {
+                    displayTime(secondsLeft);
+                }
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(countdown);
+            timerDisplay.textContent = "00:00";
+        }
+
+        
+        function addItemToList() {
+            const newItem = document.getElementById("newItem").value;
+            if (newItem) {
+                const shoppingList = document.getElementById("shoppingList");
+                const listItem = document.createElement("li");
+                listItem.textContent = newItem;
+                shoppingList.appendChild(listItem);
+                document.getElementById("newItem").value = "";
+            }
+        }
+        let isBackgroundColorToggled = false;
+        let initialBackgroundColor = 'black'; 
+
+        function toggleBackgroundColor() {
+            const rightContainer = document.querySelector('.right-container');
+            const button = document.getElementById('backgroundToggleButton');
+
+        if (isBackgroundColorToggled) {
+            rightContainer.style.backgroundColor = initialBackgroundColor; 
+            button.textContent = 'Main Off'; 
+            button.style.backgroundColor = 'red'; 
+        } else {
+            rightContainer.style.backgroundColor = 'aqua'; 
+            button.textContent = 'Main On'; 
+            button.style.backgroundColor = 'green'; 
+        }
+
+            isBackgroundColorToggled = !isBackgroundColorToggled; 
+}
         
        
     </script>
