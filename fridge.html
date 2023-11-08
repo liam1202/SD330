@@ -24,9 +24,7 @@
             background-color: black;
         }
         .fullWidth { width: 100%; }
-        .darkMode{
-            background-color: black;
-        }
+        
 
         
     </style>
@@ -34,7 +32,7 @@
     <meta charset="UTF-8">
 </head>
 <body onload="doStartClock()">
-    <input type="button" onclick="switchFormat()" id="switchFormat" value="Switch Format">
+    
     <div class="left-container">
         <div id="div1">
             <input type="button" onclick="button2()" id="button2" value="Open Door">
@@ -45,6 +43,7 @@
     <br style="clear: right";>
     <div class="right-container">
         <button id="backgroundToggleButton" button onclick="toggleBackgroundColor()">Main Off</button>
+        <input type="button" onclick="switchFormat()" id="switchFormat" value="Switch Format">
         <div id="div2" onload="">
             <p id="timePar" style="font-size: 2em; font-family: 'Courier New', 
             'Courier New', Courier, monospace; text-align: center;">00:00:00</p>
@@ -73,6 +72,7 @@
             <br style="clear: right";>
             <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6360/6360720cv13d.jpg;maxHeight=2000;maxWidth=2000" 
             id="tvoff" width="300px" height="300px">
+            <audio id="tv" src="tv.mp3"></audio>
         </div>
         <div id="music">
             <input type="button" onclick="music()" id="song" value="musicOff" style="background-color: red;">
@@ -275,15 +275,20 @@
         if (but4.value == "tvOn"){
             but4.value = "tvOff";
             but4.style.backgroundColor="red";
+            tv.pause();
             
                 
         } else {
             but4.value = "tvOn";
             but4.style.backgroundColor="green";
+            playTV();
             
             
         }
-        
+        function playTV(){
+            const tv = document.getElementById("tv");
+            tv.play();
+        }
         
         }
         function music(){
@@ -378,6 +383,11 @@
 
             isBackgroundColorToggled = !isBackgroundColorToggled; 
 }
+        
+       
+    </script>
+</body>
+</html>
         
        
     </script>
