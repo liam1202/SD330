@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My GitHub Repository</title>
+    <title>My GitHub Repository-Knipper</title>
     <style>
         body {
-            background-image: url('your-background-image.jpg');
-            background-size: cover;
             font-family: Arial, sans-serif;
         }
         header {
@@ -15,7 +13,7 @@
         }
         #avatar {
             max-width: 150px;
-            border-radius: 50%;
+            border-radius: 70%;
         }
         #content {
             text-align: center;
@@ -34,16 +32,14 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to My GitHub Repository</h1>
+        <h1>My SD330 Files- Liam Knipper</h1>
     </header>
     <div id="content">
-        <img id="avatar" src="your-avatar.jpg" alt="Your Name">
+        <img id="avatar" src="avatar.jpg" alt="Liam Knipper">
         <p>This is my GitHub repository containing various files. Click on the links below to explore:</p>
         <div id="files"></div>
     </div>
-    <footer>
-        &copy; Your Name - 2023
-    </footer>
+    <footer><small><hr>(c) L. Knipper - November 6, 2023</footer></small>
 
     <script>
         function githubFilelist() {
@@ -54,8 +50,8 @@
                 const data = await response.json();
 
                 for (let file of data) {
-                    const fname = file.name;
-                    const fpath = "https://liam1202.github.io/SD330/" + fname;
+                    fname = file.name;
+                    fpath = "https://liam1202.github.io/SD330/" + fname;
                     
                     // Create clickable links using anchor tags
                     htmlString += `<p><a href="${fpath}" target="_blank">${fname}</a></p>`;
