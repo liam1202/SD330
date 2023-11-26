@@ -1,0 +1,198 @@
+{
+  "courses": [
+    {
+      "courseID": "CSCI101",
+      "title": "Introduction to Computer Science",
+      "semester": "Fall 2023",
+      "professor": "Dr. Smith",
+      "credits": 3,
+      "schedule": "MWF 10:00 AM - 11:30 AM"
+    },
+    {
+      "courseID": "MATH201",
+      "title": "Calculus I",
+      "semester": "Spring 2024",
+      "professor": "Dr. Johnson",
+      "credits": 4,
+      "schedule": "TTH 1:00 PM - 2:30 PM"
+    },
+    {
+      "courseID": "PHYS101",
+      "title": "Introduction to Physics",
+      "semester": "Fall 2023",
+      "professor": "Dr. Brown",
+      "credits": 4,
+      "schedule": "MWF 2:00 PM - 3:30 PM"
+    },
+    {
+      "courseID": "ENG101",
+      "title": "English Composition",
+      "semester": "Spring 2025",
+      "professor": "Dr. Davis",
+      "credits": 3,
+      "schedule": "TTH 10:00 AM - 11:30 AM"
+    },
+    {
+      "courseID": "HIST201",
+      "title": "World History",
+      "semester": "Fall 2024",
+      "professor": "Dr. Thompson",
+      "credits": 3,
+      "schedule": "MWF 9:00 AM - 10:30 AM"
+    },
+    {
+      "courseID": "CHEM101",
+      "title": "General Chemistry",
+      "semester": "Spring 2024",
+      "professor": "Dr. Martinez",
+      "credits": 4,
+      "schedule": "MWF 11:00 AM - 12:30 PM"
+    },
+    {
+      "courseID": "PSYC101",
+      "title": "Introduction to Psychology",
+      "semester": "Fall 2025",
+      "professor": "Dr. Wilson",
+      "credits": 3,
+      "schedule": "TTH 2:00 PM - 3:30 PM"
+    },
+    {
+      "courseID": "ART101",
+      "title": "Introduction to Art History",
+      "semester": "Spring 2024",
+      "professor": "Dr. Anderson",
+      "credits": 3,
+      "schedule": "MWF 1:00 PM - 2:30 PM"
+    }
+  ],
+  "books": [
+    {
+      "ISBN": "1234567890",
+      "title": "Computer Science Fundamentals",
+      "author": "John Doe",
+      "courseID": "CSCI101",
+      "publishedYear": 2022,
+      "publisher": "Tech Publications"
+    },
+    {
+      "ISBN": "0987654321",
+      "title": "Programming Basics",
+      "author": "Jane Smith",
+      "courseID": "CSCI101",
+      "publishedYear": 2021,
+      "publisher": "Code Books"
+    },
+    {
+      "ISBN": "9876543210",
+      "title": "Calculus: Concepts and Applications",
+      "author": "Robert Ellis",
+      "courseID": "MATH201",
+      "publishedYear": 2020,
+      "publisher": "Math Press"
+    },
+    {
+      "ISBN": "0123456789",
+      "title": "Differential Equations",
+      "author": "Alice Johnson",
+      "courseID": "MATH201",
+      "publishedYear": 2018,
+      "publisher": "Mathematics World"
+    },
+    {
+      "ISBN": "1112223334",
+      "title": "Physics Principles",
+      "author": "Michael Wilson",
+      "courseID": "PHYS101",
+      "publishedYear": 2017,
+      "publisher": "Physics Publishing"
+    },
+    {
+      "ISBN": "5678901234",
+      "title": "Quantum Mechanics",
+      "author": "Sarah Adams",
+      "courseID": "PHYS101",
+      "publishedYear": 2017,
+      "publisher": "Quantum Books"
+    },
+    {
+      "ISBN": "3456789012",
+      "title": "Writing Essentials",
+      "author": "Emily White",
+      "courseID": "ENG101",
+      "publishedYear": 2020,
+      "publisher": "Writer's Guild"
+    },
+    {
+      "ISBN": "6789012345",
+      "title": "Literary Analysis",
+      "author": "James Miller",
+      "courseID": "ENG101",
+      "publishedYear": 2021,
+      "publisher": "Literature Press"
+    },
+    {
+      "ISBN": "8901234567",
+      "title": "Ancient Civilizations",
+      "author": "Karen Lee",
+      "courseID": "HIST201",
+      "publishedYear": 2013,
+      "publisher": "History Books Co."
+    },
+    {
+      "ISBN": "2345678901",
+      "title": "Modern Era",
+      "author": "Thomas Brown",
+      "courseID": "HIST201",
+      "publishedYear": 2022,
+      "publisher": "Modern History Publications"
+    },
+    {
+      "ISBN": "4567890123",
+      "title": "Chemical Reactions",
+      "author": "Maria Rodriguez",
+      "courseID": "CHEM101",
+      "publishedYear": 2020,
+      "publisher": "Chemistry Press"
+    },
+    {
+      "ISBN": "7890123456",
+      "title": "Organic Chemistry",
+      "author": "Carlos Hernandez",
+      "courseID": "CHEM101",
+      "publishedYear": 2019,
+      "publisher": "Organic Publishing"
+    },
+    {
+      "ISBN": "9012345678",
+      "title": "Psychology Basics",
+      "author": "Eva Smith",
+      "courseID": "PSYC101",
+      "publishedYear": 2023,
+      "publisher": "Psychology Books Inc."
+    },
+    {
+      "ISBN": "3456789012",
+      "title": "Cognitive Psychology",
+      "author": "David Turner",
+      "courseID": "PSYC101",
+      "publishedYear": 2022,
+      "publisher": "Mind Press"
+    },
+    {
+      "ISBN": "6789012345",
+      "title": "Art Through the Ages",
+      "author": "Sophia Brown",
+      "courseID": "ART101",
+      "publishedYear": 2019,
+      "publisher": "Artistic Publications"
+    },
+    {
+      "ISBN": "1234567890",
+      "title": "Modern Art Movements",
+      "author": "Robert Davis",
+      "courseID": "ART101",
+      "publishedYear": 2021,
+      "publisher": "Artistic Presses"
+    }
+  ]
+}
