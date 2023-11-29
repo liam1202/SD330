@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="stylesheet.css">
+  <title>FoxBooks - Courses</title>
+</head>
+<body>
+  <header>
+    <h1>FoxBooks</h1>
+    <nav>
+      <ul>
+        <li><a href="Home_Foxbooks.html">Home</a></li>
+        <li><a href="Books_Foxbooks.html">Books</a></li>
+        <li><a href="Courses_Foxbooks.html">Courses</a></li>
+        <li><a href="404_Foxbooks.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Please select one of the following courses</h2>
+    <ul id ="coursesList"></ul>
+  </main>
+ 
+  <footer><small><hr>(c) L. Knipper - November 27, 2023</footer></small>
+  <script>
+    const fetchData = async () => {
+      try {
+        const response = await fetch('foxbooks.json'); 
+        const data = await response.json();
+        const coursesList = document.getElementById('coursesList');
+        let coursesHtml = '';
+
+        data.courses.forEach(course => {
+          coursesHtml += `<li>
+                            <h3>${course.title}</h3>
+                            <p><strong>Course ID:</strong> ${course.courseID}</p>
+                            <p><strong>Semester:</strong> ${course.semester}</p>
+                            <p><strong>Professor:</strong> ${course.professor}</p>
+                            <p><strong>Professor:</strong> ${course.credits}</p>
+                            <p><strong>Professor:</strong> ${course.schedule}</p>
+                          </li>`;
+        });
+
+        coursesList.innerHTML = coursesHtml;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  </script>
+  
+</body>
+</html>

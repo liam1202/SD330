@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="stylesheet.css">
+  <title>FoxBooks - Books</title>
+</head>
+<body>
+  <header>
+    <h1>FoxBooks</h1>
+    <nav>
+      <ul>
+        <li><a href="Home_Foxbooks.html">Home</a></li>
+        <li><a href="Books_Foxbooks.html">Books</a></li>
+        <li><a href="Courses_Foxbooks.html">Courses</a></li>
+        <li><a href="404_Foxbooks.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Please explore our offered books</h2>
+    <div id="booksContainer"></div>
+  </main>
+ 
+  <footer><small><hr>(c) L. Knipper - November 27, 2023</footer></small>
+  <script>
+   const fetchData = async () => {
+      try {
+        const response = await fetch('foxbooks.json'); // Replace with the actual path to your JSON file
+        const data = await response.json();
+        const booksContainer = document.getElementById('booksContainer');
+        let htmlString = "<p>Here are the <b>books</b> we offer:</p>";
+
+        data.books.forEach(book => {
+          htmlString += `<div>
+                            <h3>${book.title}</h3>
+                            <p><strong>Author:</strong> ${book.author}</p>
+                            <p><strong>ISBN:</strong> ${book.ISBN}</p>
+                            <p><strong>Course ID:</strong> ${book.courseID}</p>
+                            <p><strong>Course ID:</strong> ${book.publisher}</p>
+                            <p><strong>Course ID:</strong> ${book.publishedYear}</p>
+                         </div>`;
+        });
+
+        booksContainer.innerHTML = htmlString;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  </script>
+    </script>
+</body>
+</html>
