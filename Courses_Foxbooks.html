@@ -35,7 +35,7 @@
 
         data.courses.forEach(course => {
           coursesHtml += `<li>
-                            <h3>${course.title}</h3>
+                            <h3><a href="Books_Foxbooks.html?courseID=${course.courseID}">${course.title}</a></h3>
                             <p><strong>Course ID:</strong> ${course.courseID}</p>
                             <p><strong>Semester:</strong> ${course.semester}</p>
                             <p><strong>Professor:</strong> ${course.professor}</p>
