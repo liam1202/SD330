@@ -28,12 +28,20 @@
   <script>
    const fetchData = async () => {
       try {
-        const response = await fetch('foxbooks.json'); // Replace with the actual path to your JSON file
+        const response = await fetch('foxbooks.json');
         const data = await response.json();
-        const booksContainer = document.getElementById('booksContainer');
-        let htmlString = "<p>Here are the <b>books</b> we offer:</p>";
 
-        data.books.forEach(book => {
+        // Get the courseID from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const courseID = urlParams.get('courseID');
+
+        const booksContainer = document.getElementById('booksContainer');
+        let htmlString = `<p>Here are the <b>books</b> for Course ID: <strong>${courseID}</strong></p>`;
+
+        // Filter books based on the selected courseID
+        const filteredBooks = data.books.filter(book => book.courseID === courseID);
+
+        filteredBooks.forEach(book => {
           htmlString += `<div>
                             <h3>${book.title}</h3>
                             <p><strong>Author:</strong> ${book.author}</p>
@@ -51,6 +59,7 @@
     };
 
     fetchData();
+  </script>
   </script>
     </script>
 </body>
