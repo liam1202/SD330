@@ -14,7 +14,7 @@
       <ul>
         <li><a href="foxbooks.html">Home</a></li>
         <li><a href="Courses_Foxbooks.html">Courses</a></li> 
-        <li><a href="Books_Foxbooks.html">Books</a></li>
+        <li><a href="Books_Foxbooks.html" id="booksLink">Books</a></li>
         <li><a href="404_Foxbooks.html">Contact (Under Repair)</a></li>
       </ul>
     </nav>
@@ -28,8 +28,14 @@
     <ul id ="coursesList"></ul>
   </main>
  
-  <footer><small><hr>(c) L. Knipper - November 27, 2023</footer></small>
+  <footer><small><hr>(c) L. Knipper - November 29, 2023</footer></small>
   <script>
+    
+    document.getElementById('booksLink').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent the default behavior of the link
+      window.location.href = '404_Foxbooks.html'; // Redirect to 404_Foxbooks.html
+    });
+  
     const fetchData = async () => {
       try {
         const response = await fetch('foxbooks.json'); 
