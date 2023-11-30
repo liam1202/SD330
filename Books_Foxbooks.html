@@ -4,39 +4,7 @@
     
   <meta charset="UTF-8">
   <link rel="stylesheet" href="stylesheet.css">
-  <style>
-  /* Style the list */
-  ul.breadcrumb {
-    padding: 10px 16px;
-    list-style: none;
-    background-color: #eee;
-  }
   
-  /* Display list items side by side */
-  ul.breadcrumb li {
-    display: inline;
-    font-size: 18px;
-  }
-  
-  /* Add a slash symbol (/) before/behind each list item */
-  ul.breadcrumb li+li:before {
-    padding: 8px;
-    color: black;
-    content: "/\00a0";
-  }
-  
-  /* Add a color to all links inside the list */
-  ul.breadcrumb li a {
-    color: #0275d8;
-    text-decoration: none;
-  }
-  
-  /* Add a color on mouse-over */
-  ul.breadcrumb li a:hover {
-    color: #01447e;
-    text-decoration: underline;
-  }
-  </style>
   <title>FoxBooks - Books</title>
 </head>
 <body>
@@ -46,6 +14,7 @@
       <ul>
         <li><a href="Home_Foxbooks.html">Home</a></li>
         <li><a href="Courses_Foxbooks.html">Courses</a></li>
+        <li><a href="Books_Foxbooks.html">Books</a></li>
         <li><a href="404_Foxbooks.html">Contact (Under Repair)</a></li>
       </ul>
     </nav>
@@ -53,8 +22,8 @@
 
   <main>
     <ul class="breadcrumb">
-      <li><a href="Courses_Foxbooks.html">Courses</a></li> 
       <li><a href="Home_Foxbooks.html">Home</a></li>
+      <li><a href="Courses_Foxbooks.html">Courses</a></li> 
     </ul>
     <h2>Please select one of the following courses</h2>
     <ul id ="coursesList"></ul>
