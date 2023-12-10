@@ -13,29 +13,37 @@
     <nav>
       <ul>
         <li><a href="foxbooks.html">Home</a></li>
-        <li><a href="Courses_Foxbooks.html">Courses</a></li> 
-        <li><a href="Books_Foxbooks.html" id="booksLink">Books</a></li>
-        <li><a href="404_Foxbooks.html">Contact (Under Repair)</a></li>
+        <li><a href="Courses_Foxbooks.html">Courses & Books</a></li>
+        
+        <li><a href="404_Foxbooks.html">Contact</a></li>
+        <li><a href="404_Foxbooks.html">Order</a></li>
+        <li><a href="404_Foxbooks.html">Pickup Info</a></li>
+        <li><a href="404_Foxbooks.html">Coupons & Deals</a></li>
+        <li><a href="404_Foxbooks.html">Membership</a></li>
+        <li><a href="404_Foxbooks.html">My Account</a></li>
+        <li><a href="404_Foxbooks.html">Accessories</a></li>
+        <li><a href="404_Foxbooks.html">Wishlist</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <ul class="breadcrumb">
+    <ul class="breadcrumb" id="breadcrumb">
       <li><a href="foxbooks.html">Home</a></li>
-    </ul>
+      
+  </ul>
     <h2>Please select one of the following courses</h2>
     <ul id ="coursesList"></ul>
   </main>
  
-  <footer><small><hr>(c) L. Knipper - November 29, 2023</footer></small>
+  <footer><small><hr>(c) L. Knipper - December 10, 2023</footer></small>
   <script>
     
     
   
     const fetchData = async () => {
       try {
-        const response = await fetch('foxbooks.json'); 
+        const response = await fetch('https://liam1202.github.io/SD330/foxbooks.json'); 
         const data = await response.json();
         const coursesList = document.getElementById('coursesList');
         let coursesHtml = '';
@@ -58,6 +66,51 @@
     };
 
     fetchData();
+  // Get the current page URL
+  var currentPage = window.location.href;
+
+// Get the breadcrumb element
+var breadcrumb = document.getElementById('breadcrumb');
+
+// Function to add a breadcrumb item
+function addBreadcrumb(label, url) {
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = url;
+    a.textContent = label;
+    li.appendChild(a);
+    breadcrumb.appendChild(li);
+}
+
+// Define the mapping of page labels to URLs
+var pageMappings = {
+    'Contact': '404_Foxbooks.html',
+    'Order': '404_Foxbooks.html',
+    'Pickup Info': '404_Foxbooks.html',
+    'Coupons & Deals': '404_Foxbooks.html',
+    'Membership': '404_Foxbooks.html',
+    'My Account': '404_Foxbooks.html',
+    'Accessories': '404_Foxbooks.html',
+    'Wishlist': '404_Foxbooks.html'
+    
+};
+
+// Check if the current page is not the home or Courses page
+if (currentPage !== 'foxbooks.html' && currentPage !== 'Courses_Foxbooks.html') {
+    // Get the label for the current page
+    var currentLabel = Object.keys(pageMappings).find(function (key) {
+        return pageMappings[key] === currentPage;
+    });
+
+    // Add a breadcrumb for the Courses page
+    addBreadcrumb('Courses & Books', 'Courses_Foxbooks.html');
+    
+
+    // Add a breadcrumb for the current page
+    if (currentLabel) {
+        addBreadcrumb(currentLabel, currentPage);
+    }
+}
   </script>
   
 </body>
