@@ -6,7 +6,8 @@
       "semester": "Fall 2023",
       "professor": "Dr. Smith",
       "credits": 3,
-      "schedule": "MWF 10:00 AM - 11:30 AM"
+      "schedule": "MWF 10:00 AM - 11:30 AM",
+      "size": "Medium"
     },
     {
       "courseID": "MATH201",
@@ -14,7 +15,8 @@
       "semester": "Spring 2024",
       "professor": "Dr. Johnson",
       "credits": 4,
-      "schedule": "TTH 1:00 PM - 2:30 PM"
+      "schedule": "TTH 1:00 PM - 2:30 PM",
+      "size": "Large"
     },
     {
       "courseID": "PHYS101",
@@ -22,7 +24,8 @@
       "semester": "Fall 2023",
       "professor": "Dr. Brown",
       "credits": 4,
-      "schedule": "MWF 2:00 PM - 3:30 PM"
+      "schedule": "MWF 2:00 PM - 3:30 PM",
+      "size": "Small"
     },
     {
       "courseID": "ENG101",
@@ -30,7 +33,8 @@
       "semester": "Spring 2025",
       "professor": "Dr. Davis",
       "credits": 3,
-      "schedule": "TTH 10:00 AM - 11:30 AM"
+      "schedule": "TTH 10:00 AM - 11:30 AM",
+      "size": "Large"
     },
     {
       "courseID": "HIST201",
@@ -38,7 +42,8 @@
       "semester": "Fall 2024",
       "professor": "Dr. Thompson",
       "credits": 3,
-      "schedule": "MWF 9:00 AM - 10:30 AM"
+      "schedule": "MWF 9:00 AM - 10:30 AM",
+      "size": "Medium"
     },
     {
       "courseID": "CHEM101",
@@ -46,7 +51,9 @@
       "semester": "Spring 2024",
       "professor": "Dr. Martinez",
       "credits": 4,
-      "schedule": "MWF 11:00 AM - 12:30 PM"
+      "schedule": "MWF 11:00 AM - 12:30 PM",
+      "size": "Large"
+      
     },
     {
       "courseID": "PSYC101",
@@ -54,7 +61,9 @@
       "semester": "Fall 2025",
       "professor": "Dr. Wilson",
       "credits": 3,
-      "schedule": "TTH 2:00 PM - 3:30 PM"
+      "schedule": "TTH 2:00 PM - 3:30 PM",
+      "size": "Small"
+      
     },
     {
       "courseID": "ART101",
@@ -62,7 +71,8 @@
       "semester": "Spring 2024",
       "professor": "Dr. Anderson",
       "credits": 3,
-      "schedule": "MWF 1:00 PM - 2:30 PM"
+      "schedule": "MWF 1:00 PM - 2:30 PM",
+      "size": "Large"
     }
   ],
   "books": [
